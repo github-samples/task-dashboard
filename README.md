@@ -2,8 +2,6 @@
 
 A task management application that allows users to create, organize, and filter tasks using a modern, responsive UI built with React.
 
-![Task Dashboard](https://github.com/yourusername/todo-app-attestations/raw/main/public/screenshot.png)
-
 > **Note:** This application is intended for demonstration purposes only and is not meant for production use.
 
 ## Features
