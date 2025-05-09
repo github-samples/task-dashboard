@@ -32,8 +32,8 @@ A task management application that allows users to create, organize, and filter 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todo-app-attestations.git
-   cd todo-app-attestations
+   git clone https://github.com/yourusername/task-dashboard.git
+   cd task-dashboard
    ```
 
 2. Install dependencies:
