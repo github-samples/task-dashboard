@@ -30,7 +30,7 @@ jobs:
 
       # Generate SBOM from the dependencies (scanning the workspace directory)
       - name: Generate SBOM
-        uses: anchore/sbom-action@9f7302141466aa6482940f15371237e9d9f4c34a
+        uses: anchore/sbom-action@9246b90769f852b3a8921f330c59e0b3f439d6e9
         with:
           upload-artifact: false
           upload-release-assets: false
@@ -54,7 +54,7 @@ jobs:
       #     subject-path: "dist.tar.gz"
 
       # Complete an attestation of the SBOM and the build
-      - uses: actions/attest-sbom@115c3be05ff3974bcbd596578934b3f9ce39bf68
+      - uses: actions/attest-sbom@bd218ad0dbcb3e146bd073d1d9c6d78e08aa8a0b
         with:
           subject-path: 'dist.tar.gz'
           sbom-path: 'sbom.spdx.json'
