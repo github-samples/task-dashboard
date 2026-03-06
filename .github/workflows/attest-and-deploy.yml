@@ -30,7 +30,7 @@ jobs:
 
       # Generate SBOM from the dependencies (scanning the workspace directory)
       - name: Generate SBOM
-        uses: anchore/sbom-action@7b36ad622f042cab6f59a75c2ac24ccb256e9b45
+        uses: anchore/sbom-action@17ae1740179002c89186b61233e0f892c3118b11
         with:
           upload-artifact: false
           upload-release-assets: false
