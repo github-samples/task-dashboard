@@ -74,10 +74,10 @@ function TaskBoard() {
   return (
     <div className="task-board" data-testid="task-board">
       <div className="mb-4 flex justify-between items-center">
-        <h2 className="font-semibold text-lg text-neutral-700">Task Lists</h2>
+        <h2 className="font-semibold text-lg text-neutral-700 dark:text-neutral-200">Task Lists</h2>
         <button 
           type="button"
-          className="flex items-center text-sm font-medium text-primary-600 hover:text-primary-800 transition-colors px-3 py-1.5 hover:bg-primary-50 rounded-lg"
+          className="flex items-center text-sm font-medium text-primary-600 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-200 transition-colors px-3 py-1.5 hover:bg-primary-50 dark:hover:bg-neutral-800 rounded-lg"
           onClick={handleManageTags}
           data-testid="manage-tags-button"
         >
@@ -120,7 +120,7 @@ function TaskBoard() {
           return (
             <div 
               key={list.id} 
-              className="task-list-container bg-white rounded-xl shadow-soft w-full flex flex-col"
+              className="task-list-container bg-white dark:bg-neutral-900 dark:border dark:border-neutral-800 rounded-xl shadow-soft w-full flex flex-col transition-colors duration-300"
               data-testid={`task-list-${list.id}`}
             >
               {editingListId === list.id ? (
@@ -131,18 +131,18 @@ function TaskBoard() {
                 />
               ) : (
                 <>
-                  <div className="list-header p-4 border-b border-neutral-100 flex justify-between items-center">
-                    <h2 className="font-medium text-lg" data-testid={`list-title-${list.id}`}>{list.title}</h2>
+                  <div className="list-header p-4 border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center">
+                    <h2 className="font-medium text-lg text-neutral-800 dark:text-neutral-100" data-testid={`list-title-${list.id}`}>{list.title}</h2>
                     <div className="flex items-center gap-2">
                       <span 
-                        className="text-xs font-medium text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-xs"
+                        className="text-xs font-medium text-neutral-500 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-xs"
                         data-testid={`task-count-${list.id}`}
                       >
                         {completedTasksCount}/{filteredTasks.length}
                       </span>
                       <button 
                         type="button"
-                        className="text-sm text-neutral-500 hover:text-neutral-700 px-2 py-1 hover:bg-neutral-100 rounded-xs"
+                          className="text-sm text-neutral-500 dark:text-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-100 px-2 py-1 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-xs"
                         onClick={() => handleEditTaskList(list.id)}
                         data-testid={`edit-list-${list.id}`}
                       >
@@ -151,7 +151,7 @@ function TaskBoard() {
                       {list.id !== 'default' && (
                         <button 
                           type="button"
-                          className="text-sm text-rose-500 hover:text-rose-700 px-2 py-1 hover:bg-rose-50 rounded-xs"
+                          className="text-sm text-rose-500 hover:text-rose-700 px-2 py-1 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-xs"
                           onClick={() => deleteTaskList(list.id)}
                           data-testid={`delete-list-${list.id}`}
                         >
@@ -174,7 +174,7 @@ function TaskBoard() {
                       <button
                         type="button"
                         onClick={() => handleAddTaskToList(list.id)}
-                        className="mb-3 w-full py-2 px-3 flex items-center justify-center text-sm text-neutral-600 hover:text-primary-600 bg-neutral-50 hover:bg-neutral-100 rounded-lg border border-dashed border-neutral-300 hover:border-primary-300 transition-colors"
+                        className="mb-3 w-full py-2 px-3 flex items-center justify-center text-sm text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-300 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg border border-dashed border-neutral-300 dark:border-neutral-700 hover:border-primary-300 transition-colors"
                         data-testid={`add-task-to-list-${list.id}`}
                       >
                         <PlusIcon className="h-4 w-4 mr-1.5" />
@@ -187,11 +187,11 @@ function TaskBoard() {
                   
                   {/* List action buttons */}
                   {filteredTasks.length > 0 && (
-                    <div className="list-actions p-3 border-t border-neutral-100 flex justify-between">
+                    <div className="list-actions p-3 border-t border-neutral-100 dark:border-neutral-800 flex justify-between">
                       <motion.button 
                         type="button"
                         onClick={() => handleCompleteListTasks(list.id)} 
-                        className="flex items-center text-xs font-medium text-primary-600 hover:text-primary-800 transition-colors px-2 py-1 hover:bg-primary-50 rounded-lg"
+                        className="flex items-center text-xs font-medium text-primary-600 hover:text-primary-800 dark:text-primary-300 dark:hover:text-primary-200 transition-colors px-2 py-1 hover:bg-primary-50 dark:hover:bg-neutral-800 rounded-lg"
                         disabled={allTasksCompleted}
                         whileHover={{ scale: allTasksCompleted ? 1 : 1.02 }}
                         whileTap={{ scale: allTasksCompleted ? 1 : 0.98 }}
@@ -204,7 +204,7 @@ function TaskBoard() {
                       <motion.button 
                         type="button"
                         onClick={() => handleDeleteListCompletedTasks(list.id)} 
-                        className="flex items-center text-xs font-medium text-rose-500 hover:text-rose-700 transition-colors px-2 py-1 hover:bg-rose-50 rounded-lg"
+                        className="flex items-center text-xs font-medium text-rose-500 hover:text-rose-700 transition-colors px-2 py-1 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg"
                         disabled={!hasCompletedTasks}
                         whileHover={{ scale: !hasCompletedTasks ? 1 : 1.02 }}
                         whileTap={{ scale: !hasCompletedTasks ? 1 : 0.98 }}
@@ -224,7 +224,7 @@ function TaskBoard() {
         {/* Add new task list button */}
         <motion.button
           type="button"
-          className="add-list-button h-48 rounded-xl border-2 border-dashed border-neutral-200 flex flex-col items-center justify-center text-neutral-400 hover:text-primary-600 hover:border-primary-300 transition-colors"
+          className="add-list-button h-48 rounded-xl border-2 border-dashed border-neutral-200 dark:border-neutral-700 flex flex-col items-center justify-center text-neutral-400 dark:text-neutral-500 hover:text-primary-600 dark:hover:text-primary-300 hover:border-primary-300 transition-colors"
           onClick={addTaskList}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

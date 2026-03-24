@@ -80,7 +80,7 @@ function GlobalTaskForm({ onCancel }) {
           placeholder="What needs to be done?"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full py-3 px-4 pr-24 text-neutral-800 rounded-lg border border-neutral-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-200 outline-hidden transition-all"
+          className="w-full py-3 px-4 pr-24 text-neutral-800 dark:text-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 focus:border-primary-400 focus:ring-2 focus:ring-primary-200 outline-hidden transition-all"
           autoComplete="off"
           data-testid="task-input"
         />
@@ -88,7 +88,7 @@ function GlobalTaskForm({ onCancel }) {
           <motion.button
             type="button"
             onClick={onCancel}
-            className="p-2 text-neutral-500 hover:text-neutral-700 rounded-full hover:bg-neutral-100 transition-colors"
+            className="p-2 text-neutral-500 dark:text-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-100 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
             whileTap={{ scale: 0.9 }}
             data-testid="cancel-button"
           >
@@ -114,7 +114,7 @@ function GlobalTaskForm({ onCancel }) {
       <div className="mb-3">
         <div className="relative">
           <div className="absolute left-3 top-1/2 -translate-y-1/2">
-            <TagIcon className="h-4 w-4 text-neutral-500" />
+            <TagIcon className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
           </div>
           <input
             type="text"
@@ -122,7 +122,7 @@ function GlobalTaskForm({ onCancel }) {
             value={newTagInput}
             onChange={(e) => setNewTagInput(e.target.value)}
             onKeyDown={handleTagKeyDown}
-            className="w-full py-3 px-4 pl-9 text-sm text-neutral-800 rounded-lg border border-neutral-200 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
+            className="w-full py-3 px-4 pl-9 text-sm text-neutral-800 dark:text-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
             autoComplete="off"
             data-testid="tag-input"
           />
@@ -143,7 +143,7 @@ function GlobalTaskForm({ onCancel }) {
         {/* Matching tag suggestions - only shown when input matches existing tags */}
         {getMatchingTags().length > 0 && (
           <div className="mt-2" data-testid="tag-suggestions">
-            <p className="text-xs font-medium text-neutral-500 mb-1.5">Select matching tag:</p>
+            <p className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1.5">Select matching tag:</p>
             <div className="flex flex-wrap gap-2">
               {getMatchingTags().map((tag, index) => (
                 <button
@@ -165,8 +165,8 @@ function GlobalTaskForm({ onCancel }) {
       {/* Selected tags display */}
       {selectedTags.length > 0 && (
         <div className="mb-1" data-testid="selected-tags">
-          <p className="text-xs font-medium text-neutral-500 mb-2">Selected tags:</p>
-          <div className="flex flex-wrap gap-2 p-2 bg-neutral-50 rounded-lg">
+          <p className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-2">Selected tags:</p>
+          <div className="flex flex-wrap gap-2 p-2 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
             {selectedTags.map((tag, index) => (
               <div 
                 key={index} 

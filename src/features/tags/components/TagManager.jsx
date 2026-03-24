@@ -42,11 +42,11 @@ function TagManager({ onClose }) {
   };
 
   return (
-    <div className="tag-manager bg-white rounded-xl shadow-lg p-5" data-testid="tag-manager">
+    <div className="tag-manager bg-white dark:bg-neutral-900 dark:border dark:border-neutral-800 rounded-xl shadow-lg p-5 transition-colors duration-300" data-testid="tag-manager">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-medium text-neutral-800">Manage Tags</h3>
+        <h3 className="text-lg font-medium text-neutral-800 dark:text-neutral-100">Manage Tags</h3>
         <button
-          className="p-2 text-neutral-500 hover:text-neutral-700 hover:bg-neutral-100 rounded-full transition-colors"
+          className="p-2 text-neutral-500 dark:text-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
           onClick={onClose}
           data-testid="close-tag-manager"
         >
@@ -59,14 +59,14 @@ function TagManager({ onClose }) {
         <div className="flex gap-2">
           <div className="relative grow">
             <div className="absolute left-3 top-1/2 -translate-y-1/2">
-              <TagIcon className="h-4 w-4 text-neutral-500" />
+              <TagIcon className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             </div>
             <input
               type="text"
               placeholder="Add a new tag"
               value={newTagName}
               onChange={(e) => setNewTagName(e.target.value)}
-              className="w-full py-2 px-4 pl-9 text-sm text-neutral-800 rounded-lg border border-neutral-300 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
+              className="w-full py-2 px-4 pl-9 text-sm text-neutral-800 dark:text-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-300 dark:border-neutral-700 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
               data-testid="new-tag-input"
             />
           </div>
@@ -89,12 +89,12 @@ function TagManager({ onClose }) {
       {/* Tag list */}
       <div className="flex flex-col gap-2 max-h-64 overflow-y-auto" data-testid="tag-list">
         {tags.length === 0 ? (
-          <p className="text-center text-neutral-500 py-3" data-testid="no-tags-message">No tags yet</p>
+          <p className="text-center text-neutral-500 dark:text-neutral-400 py-3" data-testid="no-tags-message">No tags yet</p>
         ) : (
           tags.map((tag, index) => (
             <div 
               key={index} 
-              className="flex items-center justify-between p-2 bg-neutral-50 hover:bg-neutral-100 rounded-lg transition-colors"
+              className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg transition-colors"
               data-testid={`tag-item-${tag}`}
             >
               {editingTag === tag ? (
@@ -102,14 +102,14 @@ function TagManager({ onClose }) {
                   type="text"
                   value={editedTagName}
                   onChange={(e) => setEditedTagName(e.target.value)}
-                  className="w-full py-1 px-2 text-sm border border-primary-300 rounded-xs focus:outline-hidden focus:ring-1 focus:ring-primary-500"
+                  className="w-full py-1 px-2 text-sm border border-primary-300 dark:bg-neutral-900 dark:text-neutral-100 rounded-xs focus:outline-hidden focus:ring-1 focus:ring-primary-500"
                   autoFocus
                   data-testid="edit-tag-input"
                 />
               ) : (
                 <div className="flex items-center">
                   <TagIcon className="h-4 w-4 text-primary-600 mr-2" />
-                  <span className="text-neutral-800">{tag}</span>
+                  <span className="text-neutral-800 dark:text-neutral-100">{tag}</span>
                 </div>
               )}
               
@@ -125,7 +125,7 @@ function TagManager({ onClose }) {
                       <CheckIcon className="h-4 w-4" />
                     </motion.button>
                     <motion.button
-                      className="p-1.5 text-neutral-500 hover:bg-neutral-200 rounded-full"
+                      className="p-1.5 text-neutral-500 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-600 rounded-full"
                       onClick={() => setEditingTag(null)}
                       whileTap={{ scale: 0.9 }}
                       data-testid="cancel-tag-edit"
