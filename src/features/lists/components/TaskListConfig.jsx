@@ -36,17 +36,17 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
 
   return (
     <div className="task-list-config p-4" data-testid="task-list-config">
-      <h3 className="font-medium text-lg mb-4">Configure List</h3>
+      <h3 className="font-medium text-lg mb-4 text-neutral-800 dark:text-neutral-100">Configure List</h3>
       
       {/* List title input */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-neutral-700 mb-1" htmlFor="list-title">List Title</label>
+        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1" htmlFor="list-title">List Title</label>
         <input
           id="list-title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-hidden focus:ring-1 focus:ring-primary-500"
+          className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 rounded-md focus:outline-hidden focus:ring-1 focus:ring-primary-500"
           placeholder="Enter list title"
           data-testid="list-title-input"
         />
@@ -54,14 +54,14 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
       
       {/* Current filters */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-neutral-700 mb-1">Current Filters</label>
+        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Current Filters</label>
         
         {filters.length === 0 ? (
-          <p className="text-sm text-neutral-500" data-testid="no-filters-message">No filters applied. This list will show all tasks.</p>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400" data-testid="no-filters-message">No filters applied. This list will show all tasks.</p>
         ) : (
           <div className="flex flex-wrap gap-2" data-testid="filter-list">
             {filters.map((filter, index) => (
-              <div key={index} className="inline-flex items-center bg-neutral-100 px-3 py-1 rounded-full text-sm" data-testid={`filter-item-${index}`}>
+              <div key={index} className="inline-flex items-center bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-200 px-3 py-1 rounded-full text-sm" data-testid={`filter-item-${index}`}>
                 {filter.type === 'tag' && (
                   <span>Tag: {filter.value}</span>
                 )}
@@ -71,7 +71,7 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
                 <button 
                   type="button"
                   onClick={() => removeFilter(index)}
-                  className="ml-1 text-neutral-500 hover:text-neutral-700"
+                  className="ml-1 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
                   data-testid={`remove-filter-${index}`}
                 >
                   <XMarkIcon className="h-4 w-4" />
@@ -84,9 +84,9 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
       
       {/* Add tag filter */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-neutral-700 mb-1">Filter by Tag</label>
+        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Filter by Tag</label>
         {tags.length === 0 ? (
-          <p className="text-sm text-neutral-500" data-testid="no-tags-available-message">No tags available. Add tags to tasks first.</p>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400" data-testid="no-tags-available-message">No tags available. Add tags to tasks first.</p>
         ) : (
           <div className="flex flex-wrap gap-2" data-testid="available-tags">
             {tags.map((tag) => (
@@ -112,7 +112,7 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
       
       {/* Add completion filter */}
       <div className="mb-6">
-        <label className="block text-sm font-medium text-neutral-700 mb-1">Filter by Status</label>
+        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Filter by Status</label>
         <div className="flex gap-2">
           <button
             type="button"
@@ -148,7 +148,7 @@ function TaskListConfig({ taskList, onSave, onCancel }) {
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-md hover:bg-neutral-50"
+          className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md hover:bg-neutral-50 dark:hover:bg-neutral-800"
           data-testid="cancel-config"
         >
           Cancel

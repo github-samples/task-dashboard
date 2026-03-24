@@ -48,7 +48,7 @@ function ListAddTask({ onCancel, listFilters }) {
           placeholder="Add a task to this list..."
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="w-full py-2 px-4 pr-20 text-sm text-neutral-800 rounded-lg border border-neutral-200 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
+          className="w-full py-2 px-4 pr-20 text-sm text-neutral-800 dark:text-neutral-100 dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-hidden transition-all"
           autoComplete="off"
           data-testid="list-task-input"
         />
@@ -56,7 +56,7 @@ function ListAddTask({ onCancel, listFilters }) {
           <motion.button
             type="button"
             onClick={onCancel}
-            className="p-1.5 text-neutral-500 hover:text-neutral-700 rounded-full hover:bg-neutral-100 transition-colors"
+            className="p-1.5 text-neutral-500 dark:text-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-100 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
             whileTap={{ scale: 0.9 }}
             data-testid="list-cancel-button"
           >
@@ -81,7 +81,7 @@ function ListAddTask({ onCancel, listFilters }) {
       {/* Show tags that will be automatically applied */}
       {getTagFilters().length > 0 && (
         <div className="mt-2 mb-1 px-1" data-testid="auto-applied-tags">
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
             Will be tagged with: 
             <span className="font-medium ml-1 text-primary-600">
               {getTagFilters().join(', ')}

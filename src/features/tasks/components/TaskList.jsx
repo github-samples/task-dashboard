@@ -23,7 +23,7 @@ function TaskList({ tasks }) {
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center text-neutral-500 py-4 font-medium"
+            className="text-center text-neutral-500 dark:text-neutral-400 py-4 font-medium"
             data-testid="empty-task-message"
           >
             All tasks are complete!
